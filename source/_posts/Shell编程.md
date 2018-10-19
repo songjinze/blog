@@ -37,11 +37,11 @@ Shell程序就是放在一个文件中的一系列Linux命令和实用程序，�
 
 在/root目录下使用vi编辑器创建文件date，该文件内容如下所示，共有三个命令。  
 
-\#!/bin/bash
-\#filename:date
-echo "Mr.$USER,Today is:"
-date
-echo Whish you a lucky day!
+\#!/bin/bash  
+\#filename:date  
+echo "Mr.$USER,Today is:"  
+date  
+echo Whish you a lucky day!  
 
 #### 设置可执行权限
 
@@ -58,3 +58,42 @@ ls -l /root/date
 
 在执行Shell程序时需要将date文件设置为可执行权限。如果不设置文件的可执行权限，那么需要使用bash命令告诉系统它是一个可执行的脚本，使用如下命令执行Shell程序。  
 
+### 显示欢迎界面的Shell程序
+
+通过上一节的实例可以掌握整个Shell程序编写和执行的方法。  
+
+在/root目录下使用vi编辑器创建文件welcome，在该文件中输入以下内容。  
+
+\#!/bin/bash  
+\#filename:welcome  
+first()  
+{  
+echo "=========="  
+echo "Hello Everyone! Welcome to the Linux world."  
+echo "=========="  
+}  
+second()  
+{  
+echo "************"  
+}  
+first  
+second  
+second  
+first  
+
+创建完后使用bash /root/welcome执行Shell程序。  
+
+## Shell变量
+
+像高级程序设计语言一样，Shell也提供说明和使用变量的功能。对Shell来讲，所有变量的取值都是一个字符，Shell程序采用“$var”的形式来引用名为var的变量的值。  
+
+### Shell定义的环境变量
+
+Shell在开始执行时就已经定义了一些与系统的工作环境有关的变量，用户还可以重新定义这些变量，常用的Shell环境变量如下：  
+HOME：用户保存用户宿主目录的完全路径名。  
+PATH：默认命令搜索路径。  
+TERM：终端的类型。  
+UID：当前用户的识别号。  
+PWD：当前工作目录的绝对路径名。  
+PS1：用户平时的提示符。  
+PS2：第一行没输完，等待第二行输入的提示符。  
