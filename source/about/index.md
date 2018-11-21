@@ -1,5 +1,7 @@
 ---
 title: about
 date: 2018-07-12 17:14:09
+layout: about
+type: about
 ---
-我是辣鸡
+
