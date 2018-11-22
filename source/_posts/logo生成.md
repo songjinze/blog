@@ -36,6 +36,7 @@ void logoHandle(){
 		}
 	resize(img, img, Size(60, 60));  //变为60*60像素
 	imwrite("new.png", img);          //写回
+}
 {% endcodeblock %}
 
 ## 示例：

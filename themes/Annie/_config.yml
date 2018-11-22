@@ -58,7 +58,7 @@ valine:
     
 #post_toc
 post_toc:
-    enable: true
+    enable: false
     number: false
     title: 文章目录
 
