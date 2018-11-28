@@ -13,7 +13,7 @@ categories: Linux
 
 Linux是一个免费的、多用户、多任务的操作系统，其运行方式、功能和Unix系统很相似，但Linux系统的稳定性、安全性与网络功能是许多商业操作系统所无法比拟的。  
 Linux系统最大的特色是源代码完全公开，在符合GNU/GPL（通用公共许可证）的原则下，任何人都可以自由取得、传播甚至修改源代码。  
-越来越多的大中型企业选择了Linux作为其服务器的操作系统。近几年来，Linux系统又以其友好的图形界面、丰富的应用程序及低廉的价格，在桌面领域得到了较好的发展，收到了普通用户的欢迎。  
+越来越多的大中型企业选择了Linux作为其服务器的操作系统。近几年来，Linux系统又以其友好的图形界面、丰富的应用程序及低廉的价格，在桌面领域得到了较好的发展，受到了普通用户的欢迎。  
 
 ### 1.1.2 Linux系统的产生
 
@@ -120,3 +120,40 @@ y: 错误修补的次数。
 
 一些组织和厂家，将Linux系统的内核、应用软件和文档包装起来，并提供一些系统安装界面、系统配置设定管理工具，就构成了Linux发行版本，相对于Linux操作系统内核版本，各发布厂商发行版本的版本号各不相同，与Linux系统内核的版本号是相对独立的。  
 根据GPL准则，这些发行版本虽然都源自一个内核，但都没有自己的版权。Linux的各个发行版本都是使用Linus主导开发并发布的同一个Linux内核，因此在内核层并不存在什么兼容性问题。这其中最著名的便是Red Hat公司开发的Red Hat系列以及社区组织开发的Debian系列发行版本。
+
+#### 1.3.2.2 主流Linux发行版本介绍
+
+1. Mandriva
+2. Red Hat
+3. SUSE
+4. Debian
+5. Ubuntu
+6. Gentoo
+7. Slackware
+8. Red Flag
+
+## 1.4 Fedora Core系统概述
+
+Fedora Core系统是众多Linux发行套件之一，它是一套从Red Hat Linux发展出来的免费Linux系统。
+
+### 1.4.1 Fedora Core简介
+
+Fedora Core是一个开放的、创新的以及前瞻性的基于Linux操作系统的平台，它允许任何人自由地使用、修改和重发布。
+Fedora Core的前身就是Red Hat Linux。
+Fedora Core被Red Hat公司定位为新技术的实验场，与Red Hat Enterprise Linux被定为为稳定性优先不同，许多新的技术都会被Fedora Core中检验，如果稳定的话Red Hat公司则会考虑加入Red HatEnterprise Linux中。Fedora预计每年发行1~2个版本。
+
+### 1.4.2 Fedora 17新特性
+
+* 支持GNOME 3.4 桌面环境
+* 支持GIMP 2.8图形处理软件
+* 支持Erland R15编程语言
+* 支持GCC 4.7并作为默认编译器
+* 支持Glasgow Haskell Compiler GHC 7.4编译器；
+* 支持PHP 5.4；
+* 支持Lohit Unicode 6.0；
+* 支持以太网光纤通道（FCoE）；
+* 支持iSCSI网络存储协议
+* 支持OpenStack云计算平台
+* 支持Riadk数据库
+* 支持ibus-pinyin拼音输入法
+* 支持oVirt虚拟机软件
