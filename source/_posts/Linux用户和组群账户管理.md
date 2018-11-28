@@ -85,11 +85,47 @@ useradd [-u uid [ -o ]] [-g 组群名 ] [ -G 组群名，... ] [ -d home ] [ -s 
 
 useradd -D [ -g 组群名 ] [ -b base ] [ -s shell ] [ -f inactive ] [ -e expire ]
 
+> // 创建用户账户zhangsan并设置口令  
+useradd zhangsan  
+cat /etc/passwd|grep zhangsan  
+// 查看/etc/passwd文件，可以看到已经创建了用户zhangsan  
+passwd zhangsan  
+// 创建用户moon，并设置该用户UID为1510  
+useradd -u 1510 moon  
+// 创建用户newuser，并设置该用户主目录为/home/www  
+useradd -d /home/www newuser  
+// 创建用户pp，并指定该用户是属于组群root的成员  
+useradd -g root pp  
+// 创建用户abc，并设置该用户的Shell类型是/bin/ksh  
+useradd -s /bin/ksh abc  
+
 #### 修改用户账户
 
 使用usermod命令能更改用户的Shell类型、所属的用户组群、用户口令的有效期，还能更改用户的登录名。  
 命令语法：  
 usermod [ -u uid [ -o ] ] [ -g 组群名 ] [ -G 组群名,... ] [ -d 主目录 [ -m ] ] [ -s shell ] [ -c 注释 ] [ -l 新登录名 ] [ -f 失效日 ] [ -e 过期日 ] [ -p 密码 ] [ -L|-U ] [ 用户名 ]
+
+> // 修改用户zhangsan的主目录为/home/kkk，并手动创建/home/kkk目录  
+usermod -d /home/kkk zhangsan  
+// 修改用户wangwu的主目录为/home/opop，并自动创建/home/opop目录  
+usermod -d /home/opop -m wangwu  
+// 修改用户wangwu的登录名为zhaoliu  
+usermod -l zhaoliu wangwu  
+// 修改用户zhangsan的用户名全称为张三  
+usermod -c 张三 zhangsan  
+// 修改用户zhangsan在口令过期后20天就禁用该账户  
+usermod -f 20 zhangsan  
+// 修改用户sun所属的组群为root，该组群必须事先存在  
+usermod -g root sun  
+// 锁住用户zhangsan口令，使口令无效  
+usermod -L zhangsan  
+// 对应解锁  
+usermod -U zhangsan  
+// 修改用户zhangsan账户的过期日期是2012年12月12号  
+usermod -e 12/12/2012 zhangsan  
+// 修改用户zhangsan的Shell类型为/bin/ksh  
+usermod -s /bin/ksh zhangsan  
+
 
 #### 删除用户账户
 

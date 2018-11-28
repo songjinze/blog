@@ -37,7 +37,7 @@ Shell程序就是放在一个文件中的一系列Linux命令和实用程序，�
 
 在/root目录下使用vi编辑器创建文件date，该文件内容如下所示，共有三个命令。  
 
-\#!/bin/bash  
+> \#!/bin/bash  
 \#filename:date  
 echo "Mr.$USER,Today is:"  
 date  
@@ -46,17 +46,19 @@ echo Whish you a lucky day!
 #### 设置可执行权限
 
 创建完date文件之后它还不能执行，需要给它设置可执行权限，使用如下命令可给文件设置权限。  
-chmod u+x /root/date  
+> chmod u+x /root/date  
 ls -l /root/date  
 
 #### 执行Shell程序
 
 输入整个文件的完整路径执行Shell程序，使用如下命令执行。  
-/root/date  
+> /root/date  
 
 #### 使用bash命令执行程序
 
 在执行Shell程序时需要将date文件设置为可执行权限。如果不设置文件的可执行权限，那么需要使用bash命令告诉系统它是一个可执行的脚本，使用如下命令执行Shell程序。  
+
+> bash /root/date
 
 ### 显示欢迎界面的Shell程序
 
@@ -64,7 +66,7 @@ ls -l /root/date
 
 在/root目录下使用vi编辑器创建文件welcome，在该文件中输入以下内容。  
 
-\#!/bin/bash  
+> \#!/bin/bash  
 \#filename:welcome  
 first()  
 {  
@@ -285,6 +287,8 @@ fi
 
 if条件语句用于在两个选项中选定一项，而case条件选择为用户提供了根据字符串或变量的值从多个选项中选择一项的方法，其语法格式如下所示：  
 
+<pre>
+<code>
 case string in  
 exp-1)  
 若干个命令行1  
@@ -296,6 +300,8 @@ exp-2)
 \*)  
 其他命令行  
 esac  
+</code>
+</pre>
 
 Shell通过计算字符串string的值，将其结果依次与运算式exp-1和exp-2等进行比较，直到找到一个匹配的运算式为止。如果找到了匹配项，则执行它下面的命令直到遇到一对分号（;;）为止。  
 在case运算式中也可以使用Shell的通配符（“\*”，“?”，“[]”）。通常用“\*”作为case命令的最后运算式以便在前面找不到任何相应的匹配项时执行“其他命令行”的命令。  
@@ -307,6 +313,7 @@ Shell通过计算字符串string的值，将其结果依次与运算式exp-1和e
 #### for循环语句
 
 for循环语句对一个变量的可能的值都执行一个命令序列。赋给变量的几个数值既可以在程序中以数值列表的形式提供，也可以在程序以外以位置参数的形式提供。for循环的一般语法格式为：  
+  
 for 变量名 [in数值列表]  
 do  
 若干个命令行  
@@ -317,23 +324,82 @@ done
 #### while循环语句
 
 while语句是用命令的返回状态值来控制循环的。while循环的一般语法格式为：  
+  
 while  
 若干个命令行1  
 do  
 若干个命令行2  
 done  
+
 只要while的“若干个命令行1”中最后一个命令的返回状态为真，while循环就继续执行“do...done”之间的“若干个命令行2”  
+
+> 使用while语句创建一个计算1到5的平方的Shell程序  
+#!/bin/bash  
+#filename:zx  
+int=1  
+while [$int -le 5]  
+do  
+sq='expr $int \* $int'  
+echo $sq  
+int='expr $int + 1'  
+done  
+echo "job completed"  
+
+> 使用while语句创建一个根据输入的数值求累加和(1+2+3+4+......+n)的Shell程序  
+#!/bin/bash  
+#filename:sum  
+echo -n "Please Input Number:"  
+read NUM  
+number=0  
+sum=0  
+while [ $number -le $NUM ]  
+do  
+echo number  
+echo "$number"  
+number='expr $number + 1'  
+echo sum  
+echo "$sum"  
+sum='expr $sum + $number'  
+done  
+echo  
 
 #### until循环语句
 
-until语句是另一种循环结构，它和while语句相似，其语句格式如下：  
+until语句是另一种循环结构，它和while语句相似，其语句格式如下：    
+  
 until  
 若干个命令行1  
 do  
 若干个命令行2  
 done  
+
 until循环和while循环的区别在于：while循环在条件为真时继续执行循环，而until则是在条件为假时继续执行循环。  
 Shell还提供了true和false两条命令用于创建无限循环结构，它们的返回状态分别是总为0或总为非0。  
+
+> 使用until语句创建一个计算1~5的平方的Shell程序  
+#!/bin/bash  
+#filename:xx  
+int=1  
+until [ $int -gt 5 ]  
+do  
+sq='expr $int \* $int'  
+echo $sq  
+int='expr $int + 1'  
+done  
+echo "Job completed"  
+
+> 使用unitl语句创建一个输入exit退出的Shell程序  
+#!/bin/bash  
+#filename:hk  
+echo "This example is for test unitl...do"  
+echo "If you input [exit] then quit the system"  
+echo -n "please input:"  
+read EXIT  
+until [ $EXIT = "exit" ]  
+do  
+read EXIT  
+done  
+echo "OK!"  
 
 #### break和continue语句
 
@@ -357,15 +423,31 @@ source命令（从C Shell而来）是bash shell的内置命令。点命令（从
 
 所有函数在使用前必须定义。这意味着必须将函数放在脚本开始部分，直至shell解释器首次发现它时，才可以使用。函数的调用，只需要使用函数名就可以调用已经定义好的函数。  
 格式：  
+  
 定义：  
 [function]函数名()
 {  
     命令  
 }  
+  
 引用：  
-函数名：[参数1 参数2 ...参数n]  
+函数名：[参数1 参数2 ...参数n]    
+  
+在Shell中，调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值，例如，$1表示第一个参数，$2表示第二个参数...  
+注意，$10不能获取第十个参数，获取第十个参数需要${10}。当n>=10时，需要使用${n}来获取参数。  
+另外，还有几个特殊的参数：  
+|参数处理|说明|
+|---|---|
+|$#|传递到脚本的参数个数|
+|$*|以一个单字符串显示所有向脚本传递的参数|
+|$$|脚本运行的当前进程ID号|
+|$!|后台运行的最后一个进程的ID号|
+|$@|与$*相同，但是使用加引号，并在引用中返回每个参数|
+|$-|显示Shell使用的当前选项，与set命令功能相同|
+|$?|显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误|
 
 ### 从函数中返回值  
+
 当调用完函数，那么主程序可能需要得到函数的返回值。在函数中得到函数返回值可以使用：  
 在函数末尾加return，从函数中返回，用最后的命令状态决定返回值。  
 返回一个数值，如0或1。格式如：return 0或者return 1。  
