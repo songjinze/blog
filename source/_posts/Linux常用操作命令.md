@@ -19,11 +19,29 @@ Linux系统下文本显示和处理命令有cat，more，less，head，tail，so
 命令语法：  
 cat [选项][文件名]
 
+> //把文件textfile1文件内容加上行号后输入到textfile2文件中  
+cat textfile1  
+cat -n textfile1 > textfile2  
+cat textfile2  
+// 把文件textfile1和textfile2的文件内容加上行号（空白行不加）之后将内容附加到文件textfile3中。  
+cat textfile1  
+cat textfile2  
+cat -b textfile1 textfile2 >> textfile3  
+cat textfile3  
+
+
 ### 1.1.2 more：分页显示文本文件
 
 使用more命令可以分页显示文本文件的内容。  
 命令语法：  
 more [-dlfpcsu] [-num] [+/pattern] [+linenum] [文件名]
+
+> //逐页显示testfile文件内容，如有连续两行以上空白行则以一行空白行显示。  
+more -s testfile  
+//从第20行开始显示testfile文件的内容  
+more +20 testfile  
+// 一次两行显示/etc/passwd文件内容  
+more -2 /etc/passwd
 
 ### 1.1.3 less：回卷显示文本文件
 
@@ -37,11 +55,22 @@ less [选项] [文件名]
 命令语法：  
 head [选项] [文件]  
 
+> //查看文件/etc/passwed的前三行内容  
+head -3 /etc/passwd  
+// 查看文件/etc/passwd的文件内容，并显示文件名  
+head -v /etc/passwd  
+
 ### 1.1.5 tail：查看文件末尾数据  
 
 使用tail命令可以查看文件的末尾数据。  
 命令语法：  
 tail [选项] [文件名] 
+
+> //查看文件/etc/passwd末尾三行数据  
+tail -3 /etc/passwd  
+//查看文件/etc/passwd末尾100字节的数据内容  
+tail -c 100 /etc/passwd  
+
 
 ### 1.1.6 sort：对文件中的数据进行排序
 
@@ -49,17 +78,27 @@ tail [选项] [文件名]
 命令语法：  
 sort [选项] [文件]  
 
+> //读取文件file1，以倒序排序该文件并显示在屏幕上  
+sort -r file1
+
 ### 1.1.7 uniq：将重复行从输出文件中删除
 
 使用uniq命令可以将文件内的重复行数据从输出文件中删除，只留下每条记录的唯一样本。  
 命令语法：  
 uniq [选项] [文件]
 
+> //查看文件file3中不重复的数据内容  
+uniq -u file3  
+
 ### 1.1.8 cut：从文件每行中显示出选定的字节、字符或字段
 
 使用cut命令可以从文件的每行中显示出选定的字节、字符或字段。  
 命令语法：  
 cut { -b List [ -n ] | -c List | -f List [ -s ] [ -d Character ] } [ 文件 ]
+
+> //显示文件/etc/passwd中的用户登录名和用户名全称字段，这是第1个和第5个字段，由冒号隔开  
+cut -f 1,5 -d: /etc/passwd  
+
 
 ### 1.1.9 comm：比较两个已排过序的文件
 
@@ -70,6 +109,9 @@ comm [-123] [--help] [文件1] [文件2]
 -2：不显示只在第二个文件里出现过的行。  
 -3：不显示同时在第一个和第二个文件里出现过的行。  
 如果没有指定任何参数，comm命令读取这两个文件，然后生成三列输出：第一列仅在file1中出现的行；第二列仅在file2中出现的行；第三列在两个文件中都存在的行。  
+
+> //比较文件file1和file2，只显示文件file1和file2中相同行的数据内容  
+comm -12 file1 file2
 
 ### 1.1.10 diff：逐行比较两个文本文件，列出其不同之处
 
@@ -87,11 +129,27 @@ Linux系统下文件和命令查找命令有grep，find，locate，whereis，fil
 命令语法：  
 grep [选项] [查找模式] [文件名]  
 
+> //在文件kkk中搜索匹配字符“test file”  
+grep 'test file' kkk  
+// 显示所有以d开头的文件中包含“test”的行数据内容  
+grep 'test' d*  
+// 显示在d1，d2文件中匹配“test”的行数据内容  
+grep 'test' d1 d2  
+// 在文件aa中显示所有包含至少由5个连续小写字符的行数据内容  
+grep '[a-z]\\{5\\}' aa
+
 ### 1.2.2 find：列出文件系统中符合条件的文件或目录
 
 使用find命令可以将文件系统中符合条件的文件或目录列出来，可以指定文件的名称、类别、时间、大小以及权限等不同信息的组合，只有完全相符的文件才会被列出来。  
 命令语法：  
 find [路径] [选项] [-print]  
+
+> //查找/etc目录下的配置文件  
+find /etc -name named.conf  
+//查找/目录下所有以".conf"为扩展名的文件  
+find / -name '*.conf'  
+//列出当前目录及其子目录下所有最近20天内更新过的文件  
+find . -ctime -20
 
 ### 1.2.3 locate：在数据库中查找文件
 
@@ -99,11 +157,19 @@ find [路径] [选项] [-print]
 命令语法：  
 locate [-d \<数据库文件>] [--help] [--version] [范本样式]  
 
+> // 查找所有文件名为named.conf的前3个文件  
+locate -n 3 named.conf  
+
 ### 1.2.4 whereis：查找指定文件、命令和手册页位置
 
 使用whereis命令可以查找指定文件、命令和手册页的位置。  
 命令语法：  
 whereis [选项] [文件名]  
+
+> // 查找mv命令的二进制文件在什么目录下  
+whereis -b mv  
+// 查找mv命令的手册文件在什么目录下  
+wehreis -m mv  
 
 ### 1.2.5 file：查询文件类型  
 
@@ -133,11 +199,25 @@ Linux系统下信息显示命令有uname，hostname，dmesg，cal以及date等�
 命令语法：  
 uname [-amnrsv]
 
+> // 显示操作系统的内核版本  
+uname -r  
+// 显示计算机主机名  
+uname -n  
+// 显示计算机硬件类型  
+uname -m  
+// 显示操作系统的全部信息  
+uname -a
+
 ### 1.3.2 hostname：显示或修改计算机主机名
 
 使用hostname命令可以显示或修改计算机的主机名。  
 命令语法：  
 hostname [计算机名]
+
+> // 显示当前计算机主机名  
+hostname  
+// 修改计算机主机名为LINUX  
+hostname LINUX  
 
 ### 1.3.3 dmesg：显示计算机开机信息
 
@@ -145,11 +225,21 @@ hostname [计算机名]
 命令语法：  
 dmesg [-cn] [-s \<缓冲区大小>]  
 
+> // 显示开机信息  
+dmesg|more  
+
 ### 1.3.4 cal：显示日历信息
 
 使用cal命令可以显示计算机系统的日历。  
 命令语法：  
 cal [选项] [月 [年]]
+
+> // 显示公元2001年5月的月历  
+cal 5 2001  
+// 以星期一为每周的第一天的方式显示本月的月历  
+cal -m  
+// 以1月1日起的天数显示今年的年历  
+cal -jy  
 
 ### 1.3.5 date：显示和设置系统日期和时间
 
@@ -175,6 +265,16 @@ date [参数] [显示时间格式] (以+开头，后面接格式)
 |%a|星期几的简称（Sun~Sat）|%Y|年（例如：1970，1996等）|
 |%A|星期几的全称（Sunday~Saturday）|
 
+> //显示计算机日期和时间为2008年2月2日19点14分  
+date 0202191412  
+// 按照指定格式显示计算机日期和时间  
+date +'%r%a%d%h%y'  
+// 设置计算机时间为2004年4月14日  
+date -s 040414  
+// 设置计算机时间为上午9点16分  
+date -s 09:16:00  
+
+
 ## 1.4 信息交流
 
 Linux系统下信息交流命令有echo，mesg，wall以及write等。  
@@ -185,11 +285,16 @@ Linux系统下信息交流命令有echo，mesg，wall以及write等。
 命令语法：  
 echo [-n] [字符串]
 
+> // 将一段信息写到标准输出  
+echo hello Linux  
+// 将文本“hello linux”添加到新文件notes中  
+echo hello Linux > notes  
+
 ### 1.4.2 mesg：设置其他用户发送信息的权限
 
 使用mesg命令可以设置是否允许其他用户用write命令给自己发送信息。  
 命令语法：  
-mesg[y|n]
+mesg [y|n]
 
 ### 1.4.3 wall：对全部已登录用户发送信息
 
@@ -202,6 +307,9 @@ wall [消息]
 使用write命令可以向用户发送消息。  
 命令语法：  
 write[用户账号][终端名称]
+
+> // 向tty3终端上的root用户发送信息  
+write root tty3  
 
 ## 1.5 其他命令
 
@@ -229,4 +337,9 @@ uptime [-V]
 
 使用last命令可以显示用户最后登录的信息。  
 命令语法：  
-last[选项]  
+last [选项]  
+
+> // 显示用户root在控制台终端的所有登录和注销记录  
+last root console  
+// 显示两次系统重新引导间的时间  
+last -n 6
