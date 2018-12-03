@@ -133,6 +133,11 @@ usermod -s /bin/ksh zhangsan
 命令语法：  
 userdel [ -r ] [ 用户名 ]
 
+> //删除用户lisi  
+userdel lisi  
+// 删除用户moon，并且在删除该用户的同时一起删除主目录  
+userdel -r moon  
+
 ## 组群账户管理
 
 ### Linux组群账户配置文件
@@ -179,17 +184,34 @@ beijing:$6$E/xvWMmh$rhYLQwwffEqIudVLFzMlv1::ou
 命令语法：  
 groupadd [ -g gid [ -o ] ] [ -f ] [ 组群名 ]
 
+> // 创建名为china的组群  
+groupadd china  
+// 创建名为ou的组群，并且设置该组群GID为1800  
+groupadd -g 1800 ou  
+// 创建名为chinese的系统组群  
+groupadd -r chinese  
+
 #### 修改组群账户
 
 使用groupmod命令可以在Linux系统下修改组群账户，如组群名称、GID等。  
 命令语法：  
 groupmod [ -g < 组群识别码 > < -o > ] [ -n < 新组群名称 > ] [ 组群名称 ]  
 
+> // 将组群ou的GID修改为1900  
+groupmod -g 1900 ou  
+// 修改组群ou的新组群名称为shanghai  
+groupmod -n shanghai ou  
+
+
 #### 删除组群账户
 
 使用groupdel命令可以在Linux系统下删除组群账户。  
 命令语法：  
 groupdel [ 组群名称 ]
+
+> // 删除组群shanghai  
+groupdel shanghai  
+
 
 ## 账户相关文件或目录
 
@@ -215,11 +237,32 @@ groupdel [ 组群名称 ]
 命令语法：   
 passwd [ 选项 ] [ 用户名 ]
 
+> // 设置用户it的口令  
+passwd it  
+// 设置当前用户的口令  
+passwd  
+// 锁住用户it的口令  
+passwd -l it  
+// 解锁用户it口令  
+passwd -u it  
+// 删除用户it的口令  
+passwd -d it  
+
+
 #### gpasswd
 
 使用gpasswd命令可以设置一个组群的组群密码，或是在组群中添加、删除用户。   
 命令语法：   
 gpasswd [ -r|-R ] [ 组群名 ] gpasswd [ 选项 ] [ 用户名 ] [ 组群名 ]
+
+> // 把用户it添加到kk组群中  
+gpasswd -a it kk  
+// 从kk组群中删除用户it  
+gpasswd -d it kk  
+// 设置kk组群的口令  
+gpasswd kk  
+// 取消kk组群的密码  
+gpasswd -r kk  
 
 #### chfn命令
 
@@ -227,11 +270,26 @@ gpasswd [ -r|-R ] [ 组群名 ] gpasswd [ 选项 ] [ 用户名 ] [ 组群名 ]
 命令语法：   
 chfn [ -f full-name ] [ -o office ] [ -p office-phone ] [ -h home-phone ] [ -u ] [ -v ] [ 用户名 ]
 
+> // 更改用户newuser的信息  
+chfn newuser  
+// 设置用户it的办公地址是财务室  
+chfn -o 财务室 it  
+// 设置用户it的用户名全称为挨踢  
+chfn -f 挨踢 it  
+
 #### chsh命令
 
 使用chsh命令可以更改用户账户的Shell类型。   
 命令语法：   
 chsh [ -s Shell类型 ] [ -l ] [ 用户名 ]
+
+> // 列出当前系统中所有支持的Shell类型  
+chsh -l  
+// 更改用户wangwu所用的Shell类型为/bin/sh  
+chsh -s /bin/sh wangwu  
+// 更改当前用户wangwu的Shell类型为/bin/bash  
+chsh wangwu  
+
 
 #### su命令
 
@@ -239,17 +297,28 @@ chsh [ -s Shell类型 ] [ -l ] [ 用户名 ]
 命令语法：   
 su [ 选项 ] [ 用户 ]
 
+> // 从用户root切换到用户it登录系统  
+su -it  
+// 从用户it切换到用户root登录系统  
+su root  
+
 #### pwck命令
 
 使用pwck命令可以校验用户配置文件/etc/passwd和/etc/shadow内容是否合法和完整。   
 命令语法：   
 pwck
 
+> // 检验用户配置文件/etc/passwd和/etc/shadow文件内容是否合法和完整  
+rm -rf /home/it  
+
 #### newgrp命令
 
 使用newgrp命令可以让用户账户以另一个组群的身份进行登录。  
 命令语法：  
 newgrp [ 组群名 ]
+
+> // 将用户ab以组群ou的身份登录系统  
+newgrp ou  
 
 ### 账户信息显示
 
@@ -259,11 +328,19 @@ newgrp [ 组群名 ]
 命令语法：   
 finger [ 选项 ] [ 用户名 ]
 
+> // 显示所有用户的登录信息  
+finger  
+// 显示用户newuser的信息  
+finger newuser  
+
 #### groups命令
 
 使用groups命令可以显示指定用户账户的组群成员身份。   
 命令语法：   
 groups [ 用户名 ]
+
+> // 查看用户ab是属于哪些组群的成员  
+groups ab  
 
 #### id命令
 
@@ -271,17 +348,32 @@ groups [ 用户名 ]
 命令语法：   
 id [ 选项 ] [ 用户名 ]
 
+> // 查询用户ab的UID、GID以及归属组群的情况  
+id ab  
+// 显示用户ab所属主组群的GID  
+id -g ab  
+// 显示用户ab所属组群的GID  
+id -G ab  
+// 显示用户ab的UID  
+id -u ab  
+
 #### w命令
 
 使用w命令可以详细查询已登录当前计算机的用户。   
 命令语法：   
 w
 
+> // 显示已登录当前计算机的用户详细信息  
+w  
+
 #### who命令
 
 使用who命令可以显示已登录当前计算机用户的简单信息。   
 命令语法：   
 who [ -Himqsw ] [ --version ] [ am i ] [ 记录文件 ]
+
+> // 显示已登录当前计算机用户的简单信息  
+who  
 
 
 ## 实现账户安全
@@ -301,3 +393,17 @@ chage命令选项含义
 |账户过期时间|-E date|指定账户被锁的日期，日期格式为YYYY-MM-DD。若不用日期，也可以使用自1970年1月1日后经过的天数|
 |在密码过期之前警告的天数|-W days|指定口令过期前要警告用户的天数|
 
+> // 设置用户shanghai两次改变密码之间相距的最小天数为2天  
+chage -m 2 shanghai  
+// 设置用户shanghai两次改变密码之间相距的最大天数为10天  
+chage -M 10 shanghai  
+// 设置用户shanghai在密码过期之前警告的天数为1天  
+chage -W 1 shanghai  
+// 设置用户shanghai密码失效时间为10天  
+chage -l 10 shanghai  
+// 设置用户shanghai账户过期时间为2018-10-10  
+chage -E 2018-10-10 shanghai  
+// 显示用户shanghai当前口令失效的信息  
+chage -l shanghai  
+// 用交互式的方式设置用户beijing的口令时效  
+chage beijing  
