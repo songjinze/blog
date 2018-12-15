@@ -18,8 +18,8 @@ say: Welcome
 # https://source.unsplash.com/collection/954550/1920x1080
 background_image:
     enable: true
-    #url: img/1.jpg
-    url: https://source.unsplash.com/collection/954550/1920x1080
+    url: img/4.jpg
+    #url: https://source.unsplash.com/collection/954550/1920x1080
 
 # show the motto
 # otherwise It shows the site description
