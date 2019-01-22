@@ -32,19 +32,18 @@ Output: 2
 我们采用摩尔投票法进行解决：  
 首先可以确定超过一半的元素且最多的必定只有一个，因此我们设置一个候选数candidate和对应的投票数count。  
 算法实现对应的伪代码：  
-<pre>
-<code>
+
+```java
 candidate,count=0
 遍历数组  
     对于每个数组中元素num：
         if count==0
         candidate=num;
         count+=num==candidate?1:-1;
-</code>
-</pre>
+```
 
 对应的java代码：  
-<pre><code>
+```java
 class Solution {
     public int majorityElement(int[] nums) {
         int count = 0;
@@ -60,8 +59,7 @@ class Solution {
         return candidate;
     }
 }
-</code></pre>
-
+```
 ## 改进算法
 
 题目出自Leetcode 229:  
@@ -80,7 +78,7 @@ Output: [1,2]
 
 从思路上来讲，我们可以根据“出现次数多余n/k”来判断最多有多少个数。本题可见最多为两个数，最少为1个。  
 所以同样利用投票算法的思维可以写出：  
-<pre><code>
+```java
 public class MajorityElementII {
     public List< Integer > majorityElement(int[] nums) {
         int candidate1=0;
@@ -132,7 +130,7 @@ public class MajorityElementII {
     }
 }
 
-</pre></code>
+```
 
 这里在初始化candidate后要考虑数组中数是否和初始化值相等的问题。
 
