@@ -2,7 +2,7 @@
 title: 11ContainerWithMostWater
 date: 2019-02-04 13:08:17
 tags: LeetCode
-cateogries: LeetCode
+categories: LeetCode
 ---
 
 
