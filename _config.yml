@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://songjinze.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -94,13 +94,13 @@ feed:
    content_limit: 140
    content_limit_delim: ' '
 
-# 自动生成sitemap
-sitemap:
-path: sitemap.xml
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repository: git@github.com:songjinze/songjinze.github.io.git
   branch: master
+
+# 自动生成sitemap
+sitemap: 
+  path: sitemap.xml
