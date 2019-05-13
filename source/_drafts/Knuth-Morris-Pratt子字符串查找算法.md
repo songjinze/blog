@@ -83,3 +83,5 @@ public int search(String txt){
 #### DFA的构造
 
 接下来就是KMP的核心问题：如何构造DFA
+
+    
