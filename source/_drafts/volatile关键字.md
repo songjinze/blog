@@ -1,5 +1,6 @@
 ---
 title: volatile关键字
-tags: 
+tags: Java
+categories: Java
 ---
 
