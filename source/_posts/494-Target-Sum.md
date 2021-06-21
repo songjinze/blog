@@ -1,8 +1,8 @@
 ---
 title: 494 Target Sum
 date: 2019-03-13 19:36:36
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 ---
 
 ## 题目描述

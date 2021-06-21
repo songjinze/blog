@@ -1,7 +1,7 @@
 ---
 title: 62 Unique Paths
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-04-18 18:02:57
 ---
 

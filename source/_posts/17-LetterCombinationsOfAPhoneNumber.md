@@ -1,7 +1,7 @@
 ---
 title: 17 LetterCombinationsOfAPhoneNumber
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-02-08 22:44:36
 ---
 

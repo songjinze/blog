@@ -1,8 +1,8 @@
 ---
 title: 406 Queue Reconstruction by Height
 date: 2019-05-15 16:06:55
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 ---
 
 ## 题目描述

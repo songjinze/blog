@@ -1,8 +1,8 @@
 ---
 title: 23 Merge k Sorted Lists
 date: 2019-03-19 23:18:16
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 ---
 
 ## 题目描述

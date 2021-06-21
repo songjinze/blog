@@ -1,7 +1,7 @@
 ---
 title: 146 LRU Cache
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-03-13 03:33:53
 ---
 
@@ -34,7 +34,7 @@ cache.get(4);       // returns 4
 
 ## 解决思路
 
-使用双向链表+哈希表
+使用双向链表+哈希表。这是一道典型的LRU问题（Least Recently Used），意思就是最近最少使用。采用这种方式淘汰掉key。
 
 ## 源码
 

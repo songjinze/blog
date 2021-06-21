@@ -1,7 +1,7 @@
 ---
 title: 114 Flatten Binary Tree To Linked List
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2020-01-20 12:59:09
 ---
 

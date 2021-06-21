@@ -1,7 +1,7 @@
 ---
 title: 148 Sort List
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-03-19 01:46:00
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 16 3SumClosest
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-02-08 21:06:39
 ---
 

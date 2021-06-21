@@ -1,11 +1,13 @@
 # Header
 menu:
     主页: /
+    Java: /categories/Java/
+    算法: /categories/算法/
     归档: /archives
     分类: /categories
     标签: /tags
     关于: /about
-    相册: /gallery
+    # 相册: /gallery
 
 # header
 avtor: /img/logo.png
@@ -18,7 +20,7 @@ say: Welcome
 # https://source.unsplash.com/collection/954550/1920x1080
 background_image:
     enable: true
-    url: img/3.jpg
+    url: img/4.jpg
     #url: https://source.unsplash.com/collection/954550/1920x1080
 
 # show the motto
@@ -68,7 +70,7 @@ excerpt_link: 展开全文
 #footer
 #social
 social:
-    enable: true
+    enable: false
     github: http://github.com/songjinze
     weibo: http://github.com/
     email: http://github.com/

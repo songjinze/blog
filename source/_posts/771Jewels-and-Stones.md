@@ -1,7 +1,7 @@
 ---
 title: 771Jewels and Stones
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-02-03 01:07:06
 ---
 

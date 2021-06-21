@@ -1,7 +1,7 @@
 ---
 title: 22 GenerateParentheses
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-02-09 00:51:43
 ---
 

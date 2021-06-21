@@ -1,7 +1,7 @@
 ---
 title: 338 Counting Bits
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 date: 2019-04-04 21:16:48
 ---
 

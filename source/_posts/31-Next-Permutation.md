@@ -1,8 +1,8 @@
 ---
 title: 31 Next Permutation
 date: 2019-03-19 23:50:34
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 ---
 
 ## 题目描述

@@ -1,8 +1,8 @@
 ---
 title: 33 Search in Rotated Sorted Array
 date: 2019-03-20 00:35:23
-tags: LeetCode
-categories: LeetCode
+tags: [LeetCode,算法]
+categories: [算法]
 ---
 
 ## 题目描述
