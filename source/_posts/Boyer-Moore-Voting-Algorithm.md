@@ -1,8 +1,8 @@
 ---
 title: Boyer-Moore Voting Algorithm
 date: 2018-11-10 11:45:02
-tags: 算法
-categories: 算法
+tags: [LeetCode,算法]
+categories: [算法]
 ---
 
 # Boyer-Moore Voting Algorithm 摩尔投票算法

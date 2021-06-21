@@ -1,7 +1,7 @@
 ---
 title: 使用伪对象(Mock Object)实现接口测试
-tags: 个人经验
-categories: 软件开发
+tags: [项目经验,软件开发]
+categories: [Java]
 date: 2018-12-26 19:58:53
 ---
 
